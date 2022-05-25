@@ -1,0 +1,9 @@
+=============================================
+Paginación PHP con MySQL: Concepto y ejemplos
+=============================================
+
+1. Crear una base de datos llamada "paginarbaulphp" (o cualquier otro nombre de su elección) en su MySQL PHPMyAdmin.
+2. Vaciar "paging.sql" en la base de datos recién creada.
+3. Abra "db.php" en un editor y haga los cambios necesarios en los números de línea 2, 3, 4 y 5.
+4. Subir todos los archivos php en su servidor web Local o Internet.
+5. Finalmente ejecute "index.php" en su navegador preferido.

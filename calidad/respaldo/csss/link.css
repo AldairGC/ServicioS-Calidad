@@ -1,0 +1,8 @@
+#content a {text-decoration:none;color:#086EA5}
+#content a:hover {text-decoration:underline;color:#086EA5}
+#foot a {text-decoration:none;color:#fff}
+#foot a:hover {text-decoration:underline;color:#fff}
+.box1 a {text-decoration:none;background:url(../img/head/head_02.gif);height:17px;width:75px;display:block;float:left;font-family:share-TechMono, Tahoma, Arial, Helvetica, sans-serif;text-transform:uppercase;color:#fff;text-align:center;padding:17px 0 0;margin:0 1px 0 0}
+.box1 a:hover {text-decoration:underline}
+a.link1 {background:url(../img/head/head_01.gif);height:24px;width:75px;padding:10px 0 0}
+a.link2 {padding:0 0 0 15px;background:url(../img/home/home_04.gif) no-repeat left center;float:right}

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Investigaciones</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="templatemoo_style.css" rel="stylesheet" type="text/css" />
+
+<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+<?php
+include('anunciocorre.php');
+?>
+
+</head>
+<body>
+
+<div id="templatemo_top_bar">
+	<div class="rss_contact_section">
+		
+        </div>
+
+        <div class="rss_contact contact_button">
+        </div>
+
+  
+</div> <!-- end of top bar -->
+
+<div id="templatemo_banner_bar_wrapper">
+
+	<div id="templatemo_banner_bar">
+    
+    	<h1>
+<?php
+include('arriba.php')
+?>
+        </h1>
+    
+    </div> <!-- end of banner -->
+    
+</div> <!-- end of banner wrapper -->
+
+<div id="templatemo_menu_wrapper">
+
+	<div id="templatemo_menu">
+    	<ul>
+<?php
+include('menuscorre.php');
+
+?>            
+
+
+        </ul>
+    </div> <!-- end of menu -->
+    
+</div> <!-- end of menu wrapper -->
+
+<div id="templatemo_content">
+
+	<div id="main_column">
+    
+    	<div class="section_w500">
+
+
+	<table border="1" width=50% color=black >
+		<tr>
+		<td align=center><center><font size="4" color="#000000" face="Arial, Helvetica, sans-serif">SUBIR EVIDENCIAS CORRECCION</font></center></td>
+		</tr></table><br><br>
+            
+<?php
+
+if ($_GET["subir"]=="1")
+{
+	$uploaddir = "tmp8/";
+	 $uploadfile = $uploaddir . basename($_FILES['archivo']['name']);
+	 $error = $_FILES['archivo']['error'];
+	 $subido = false;
+	 if(isset($_POST['boton']) && $error==UPLOAD_ERR_OK) { 
+	   $subido = copy($_FILES['archivo']['tmp_name'], $uploadfile); 
+	   $nombre_archivo = basename($_FILES['archivo']['name']);
+	   //echo $nombre_archivo."<br>";
+	   $name = explode(".",$nombre_archivo);
+	   $filename = $_GET["folio"]."-".$id."-".$iduser."-".date("dmyHis")."-".$name[0].".".$name[1];
+	   rename("tmp8/".basename($_FILES['archivo']['name']), "tmp8/".$filename);
+	   //echo "tmp8/".$filename;
+	  } 
+	   if($subido) { 
+		
+		echo "<font color=black>La evidencia fue cargada con exito..."; 
+	   } else {
+		echo "<font color=black>Se ha producido un error: ".$error;
+  }
+	 
+}
+
+if ($_GET["borrar"]=="1")
+{
+	unlink("tmp8/".$_GET["nombre_archivo"]);
+	echo "El horario fue borrado exitosamente..."; 
+}
+
+?>
+
+
+                    <form action="formato_productos8.php?id=<?= $_GET["id"] ?>&folio=<?= $mirow[0] ?>&subir=1" method="post" enctype="multipart/form-data" name="form"> 
+<!--                      <label for="archivo">Archivo</label>-->
+                      <input name="archivo" type="file" id="archivo" /> 
+                      <br />
+                      <input name="boton" type="submit" id="boton" value="Cargar" />
+                     </form>
+                
+          <div class="margin_bottom_20"></div>
+                
+  <ul class="list_01">
+                
+                </ul>
+                
+                <div class="button_01"></div>
+                
+      </div>
+          
+        <div class="cleaner"></div>
+    </div> <!-- end of main column -->
+    
+  <div class="side_column_w200">
+            	
+                <div class="box">
+
+                    
+				</div> 
+                
+                
+    <div class="box">
+
+                   
+			  </div>
+    </div> 
+    <!-- end of side column 1 -->
+    
+    <div class="side_column_w200">
+    
+			    <div class="box">
+            
+                    
+
+					<div class="cleaner"></div>
+				</div>
+                
+    			<div class="box">
+                	
+					
+                    
+                    
+                    
+                     
+                    
+				</div>
+            	                
+                <div class="box">
+			           
+		</div>
+               
+
+            </div> <!-- end of left side column -->
+
+	<div class="cleaner"></div>
+</div> <!-- end of content -->
+
+<div id="templatemo_footer_wrapper">
+
+	
+        
+        <div class="margin_bottom_20"></div>
+        
+        <div class="section_w940">
+
+        	<?php
+			include('derechos.php')
+                ?>
+        </div>
+        
+        <div class="cleaner"></div>
+	</div> <!-- end of footer -->
+
+</div> <!-- end of footer wrapper -->
+<!-- templatemo 280 sky blue -->
+<!-- 
+Sky Blue Template 
+
+-->
+</body>
+</html>
