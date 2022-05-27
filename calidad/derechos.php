@@ -1,1 +1,0 @@
-        	<center>Todos los Derechos reservados | Politicas de Privacidad 2013<br>Universidad Tecnol&oacute;gica de Puebla
